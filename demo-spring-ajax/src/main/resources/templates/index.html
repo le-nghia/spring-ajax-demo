@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="/css/all.css">
+</head>
+<body>
+
+    <div class="container">
+        <div style="margin-top: 50px;"></div>
+        <div class="search-result">
+            <div class="form-search">
+                <label for="keyword"></label>
+                <input type="text" class="form-control" placeholder="Brand Name" id="keyword">
+                <button type="submit" name="searchBrand" id="searchBrand" class="btn btn-success" >Search</button>
+                <button type="reset" class="reset-page btn btn-secondary rs" id="restPage">Reset</button>
+            </div>
+        </div>
+        <div class="float-right">
+            <a class="btn btn-success add-btn as" id="addBrandInfoModal"><i class="fas fa-plus-square"></i> Add Customer</a>
+        </div>
+        <div id="resultSearch">
+            <p></p>
+        </div>
+        <div>
+            <table class="table table-striped" id="customers">
+                <thead>
+                    <tr>
+                        <td >#</td>
+                        <td >Name</td>
+                        <td >Age</td>
+                    </tr>
+                </thead>
+                <tbody >
+
+                </tbody>
+            </table>
+
+        </div>
+
+        <!-- Modal Add and Edit Brand -->
+        <div class="modal fade" id="brandInfoModal">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                    <form id="brandInfoForm" role="form" enctype="multipart/form-data">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add New Customer</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="form-group ">
+                                <label for="customerid">Customer Id </label>
+                                <input type="text" class="form-control" name="customerid" id="customerid" placeholder="Customer ID" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="customername">Customer Name <span class="required-mask">(*): </span></label>
+                                <input type="text" class="form-control" id="customername" name="customername" placeholder="Customer Name..." autofocus>
+                            </div>
+
+                            <div class="form-group" >
+                                <label for="age">Age: </label>
+                                <input type="number" class="form-control" name="age" id="age" placeholder="Age with you...">
+                            </div>
+
+                        </div>
+                        <div class="modal-footer" id="enforce">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary" id="saveBrandBtn">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Confirm Deleting Brand -->
+        <div class="modal fade" id="confirmDeleteModal" >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Delete Brand</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Do you want to delete <b id="deletedBrandName"></b>?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" id="deleteSubmitBtn">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="/js/all.js"></script>
+
+    <script src="/js/jquery-3.6.0.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="notify.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script src="base.js"></script>
+
+</body>
+</html>
